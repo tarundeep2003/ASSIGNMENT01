@@ -1,45 +1,47 @@
+const express = require('express');
+const app = express();
+const hbs = require('hbs');
+const path = require('path');
+const port = process.env.PORT || 3000;
+
+// Set up paths for your views and partials
+const viewsPath = path.join(__dirname, 'views');
+const partialsPath = path.join(__dirname, 'views/partials');
+
+// Configure Handlebars as the view engine
+app.set('view engine', 'hbs');
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
+
+// Serve static files like CSS, JS, and images
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+
+// Parse URL-encoded and JSON request bodies
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Define your routes
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
 app.post('/contact', async (req, res) => {
-    try {
-        const username = req.body.user;
-        const email = req.body.email;
-        const message = req.body.msg;
-        const contact = new ContactModel({
-            name: username,
-            email: email,
-            message: message
-        });
-        const savedData = await contact.save();
-        if (savedData) {
-            res.render('home');
-        }
-    } catch (error) {
-        res.status(500).send(error); // Changed status code to 500 (Internal Server Error)
-    }
+    // Handle the contact form submission
+    // ...
+
+    res.render('home'); // Render a view after processing the form
 });
 
 app.post('/useraccount', async (req, res) => {
-    try {
-        const username = req.body.name;
-        const email = req.body.email;
-        const phone = req.body.phone;
-        const password = req.body.password;
-        const confirmPassword = req.body.cpassword;
-        if (password === confirmPassword) {
-            const user = new UserModel({
-                name: username,
-                email: email,
-                phone: phone,
-                password: password,
-                cpassword: confirmPassword
-            });
-            const savedUserData = await user.save();
-            if (savedUserData) {
-                res.render('home', { username, isLoggedIn: true }); // Fixed variable name
-            }
-        } else {
-            res.send(`Passwords do not match`);
-        }
-    } catch (error) {
-        res.status(500).send(error); // Changed status code to 500 (Internal Server Error)
-    }
+    // Handle user registration or account creation
+    // ...
+
+    res.render('home', { username, isLogged: true }); // Render a view based on the result
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 });
