@@ -1,0 +1,137 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color to the body */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header section */
+.header_section {
+    background-color: #f87c11;
+    color: #fff;
+    padding: 20px;
+}
+
+.header_section h1 {
+    font-size: 36px;
+}
+
+.header_section p {
+    font-size: 18px;
+}
+
+/* Style the hero section */
+.hero_section {
+    padding: 30px;
+    background-color: #fff;
+}
+
+/* Style the card section */
+.card_state {
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card i {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.card h4 {
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 16px;
+}
+
+.card .text-primary {
+    color: #007bff;
+}
+
+/* Style the service section */
+.service {
+    padding: 30px;
+    background-color: #fff;
+}
+
+.service h2 {
+    font-size: 28px;
+    color: #007bff;
+}
+
+.service p {
+    font-size: 16px;
+}
+
+.service .card {
+    margin: 10px;
+}
+
+/* Style the contact form section */
+.contact_us {
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.contact_us h2 {
+    font-size: 28px;
+    color: #007bff;
+}
+
+.contact_us label {
+    font-size: 16px;
+}
+
+.contact_us input, .contact_us textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact_us button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the footer section */
+.footer {
+    background-color: #007bff;
+    color: #131212;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer h3 {
+    font-size: 24px;
+}
+
+.footer .social_icons {
+    margin-top: 10px;
+}
+
+.footer .social_icons a {
+    font-size: 24px;
+    color: #111111;
+    margin: 0 10px;
+    text-decoration: none;
+}

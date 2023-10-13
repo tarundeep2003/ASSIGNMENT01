@@ -1,0 +1,83 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="logo" src="public/images/coding.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+                {{#if isLoggedIn}}
+                <!-- User is logged in -->
+                <li class="nav-item dropdown">
+                    <a class="mb-1 nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="public/images/coding.png" class="user_icon" alt="profile-icon">
+                        {{ username }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+                {{else}}
+                <!-- User is not logged in -->
+                <button type="button" class="btn btn-outline-primary ms-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Sign up</button>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Signup Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-5">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/useraccount">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">User Name</label>
+                        <input name="name" type="text" class="form-control" id="username" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" />
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input name="phone" type="number" class="form-control" id="phone" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                        <input name="cpassword" type="password" class="form-control" id="exampleInputPassword2" />
+                    </div>
+                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <p class="text-left ms-3">Already Have An Account? <a href="#">Click here</a></p>
+        </div>
+    </div>
+</div>

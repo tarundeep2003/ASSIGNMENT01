@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+ 
+
+
+<body>
+    <div class="container">
+
+        <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="logo" src="images/coding.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+                {{#if isLoggedIn}}
+                <!-- User is logged in -->
+                <li class="nav-item dropdown">
+                    <a class="mb-1 nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/coding.png" class="user_icon" alt="profile-icon">
+                        {{ username }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+                {{else}}
+                <!-- User is not logged in -->
+                <button type="button" class="btn btn-outline-primary ms-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Sign up</button>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Signup Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-5">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/useraccount">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">User Name</label>
+                        <input name="name" type="text" class="form-control" id="username" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" />
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input name="phone" type="number" class="form-control" id="phone" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                        <input name="cpassword" type="password" class="form-control" id="exampleInputPassword2" />
+                    </div>
+                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <p class="text-left ms-3">Already Have An Account? <a href="#">Click here</a></p>
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Header Section -->
+        <div class="header_section text-center">
+            <h1>Hi, I am Tarundeep Singh</h1>
+            <p>I am a web Developer. I enjoy what I do and create elegantly simple things using code.</p>
+            <img src="images/Tarunph.png" alt="hero">
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero_section" id="home">
+            <img src="hero-devices.svg" alt="hero image" width="500px">
+            <div class="bg-primary p-5 text-center text-light">
+                <h2>Description</h2>
+                <p>I'm a newbie, but I've already finished a few tasks, such as creating calculators in Java and
+                    E-commerce websites for eyewear and TVs in Asp.net and C#, respectively. Languages like Java, C#,
+                    C++, PHP, and JavaScript are ones I am familiar with. I'm not an expert in that, but I can manage it
+                    and create something wonderful and responsive from it. I have a peaceful sense of assurance, am
+                    innately interested, and am constantly trying to get better at design by solving one design problem
+                    at a time.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card Section -->
+        <div class="row card_state">
+            <div class="col-12 col-md-4 col-lg-4 mt-5">
+                <div class="card border-0 p-5 shadow">
+                    <div class="card-header bg-white border-0">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <div class="card-title text-center">
+                        <h4>Frontend Developer</h4>
+                        <p>I prefer creating new things from scratch and seeing them come to life in the browser, but I
+                            can also locate errors in existing code and make corrections.</p>
+                    </div>
+
+                    <div class="card-body text-center">
+                        <h5 class="text-primary">Languages I speak:</h5>
+                        <p>HTML, CSS, JAVA, JavaScript, C#.</p>
+                        <hr class="mb-4">
+                        <h6 class="text-primary">Dev Tools:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">VS Code</li>
+                            <li class="list-group-item">Eclipse</li>
+                            <li class="list-group-item">Bootstrap</li>
+                            <li class="list-group-item">Intellij</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 mt-5">
+                <div class="card border-0 p-5 shadow">
+                    <div class="card-header bg-white border-0">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <div class="card-title text-center">
+                        <h4>Developer</h4>
+                        <p>I like to code things from scratch, and enjoy bringing ideas to life in the browser.</p>
+                    </div>
+
+                    <div class="card-body text-center">
+                        <h5 class="text-primary">Languages I speak:</h5>
+                        <p>PHP, Advance database, C++, Arduino</p>
+                        <hr class="mb-4">
+                        <h6 class="text-primary">Dev Tools:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Github</li>
+                            <li class="list-group-item">Atom</li>
+                            <li class="list-group-item">Xcode</li>
+                            <li class="list-group-item">PHP Storm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Section -->
+    <div class="service text-center" id="service">
+        <h2>Service</h2>
+        <p>The most recent projects I worked on are listed below. I am unable to upload some of them since I can't find the links.</p>
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 mt-5">
+                <div class="card border-0 p-5 shadow">
+                    <div class="card-header bg-white border-0">
+                        <img class="img-fluid" src="images/weather.png" alt="">
+                    </div>
+                    <div class="card-title text-center">
+                        <h5>Weather App</h5>
+                        <p>This is a group project that I am in charge of, and as a result, an app was made that allows
+                            us to search for the temperature, max, and min for a given day. It varies according to the
+                            city.</p>
+                        <a href="https://tarundeep2003.github.io/Assignment-4/">
+                            <button type="button" class="btn btn-primary">Click</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 mt-5">
+                <div class="card border-0 p-5 shadow">
+                    <div class="card-header bg-white border-0">
+                        <img class="img-fluid" src="images/story.png" alt="">
+                    </div>
+                    <div class="card-title text-center">
+                        <h5>Random Story Maker</h5>
+                        <p>This is the arbitrary storyteller who speaks after creating the tale. We can reset it, have
+                            the machine create random numbers, or even do it manually. It is made up of JavaScript,
+                            JSON, HTML, and CSS.</p>
+                        <a href="https://tarundeep2003.github.io/javascriptAssignment.github.io/">
+                            <button type="button" class="btn btn-primary">Click</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 mt-5">
+                <div class="card border-0 p-5 shadow">
+                    <div class="card-header bg-white border-0">
+                        <img class="img-fluid" src="images/todolist.png" alt="">
+                    </div>
+                    <div class="card-title text-center">
+                        <h5>Reminder or To-Do List</h5>
+                        <p>This assignment uses notes or reminders, where we can write the task as a reminder. When it
+                            is finished, it makes an incredible ding sound. JavaScript was utilized there.</p>
+                        <a href="https://tarundeep2003.github.io/Assignment3/">
+                            <button type="button" class="btn btn-primary">Click</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 mt-5">
+                <div class="card border-0 p-5 shadow">
+                    <div class="card-header bg-white border-0">
+                        <img class="img-fluid" src="images/eyeware.png" alt="">
+                    </div>
+                    <div class="card-title text-center">
+                        <h5>Eyewear App</h5>
+                        <p>This is the eyewear application that I made as my ASP.NET final project last semester. This
+                            website serves as an e-commerce platform for new businesses. It includes C# and Azure.
+                            Sadly, my Azure ID has expired, therefore I am unable to provide a link for this.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="contact_us" id="contact">
+        <form method="POST" action="/contactdata">
+            <h2 class="text-center">Contact Us</h2>
+            <div class="mb-3">
+                <label for="user" class="form-label">User Name</label>
+                <input name="user" type="text" class="form-control" id="user">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="mb-2">Type your message here...</label>
+                <div class="form-floating">
+                    <textarea name="message" class="form-control" placeholder="Leave a comment here" id="message"
+                        style="height: 100px"></textarea>
+                    <label for="message">Comments</label>
+                </div>
+            </div>
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer bg-light" id="about">
+        <img src="images/coding.png" alt="logo">
+        <h3></h3>
+        <div class="social_icons">
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+            <a href=""><i class="fa fa-telegram"></i></a>
+            <a href=""><i class="fa fa-whatsapp"></i></a>
+        </div>
+        <p>Created by Tarun © 2023</p>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
