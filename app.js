@@ -11,6 +11,9 @@ const partialsPath = path.join(__dirname, 'views/partials');
 // Configure Handlebars as the view engine
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
+app.set('views', path.join(__dirname, 'views'));
+
+
 hbs.registerPartials(partialsPath);
 
 // Serve static files like CSS, JS, and images
